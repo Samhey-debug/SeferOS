@@ -3,6 +3,7 @@ const io = @import("../../arch/x86_64/io.zig");
 const COM1 = 0x3F8;
 
 // The implementation will probably change
+// UPDATE: Yeah it will change
 
 pub fn init(port: ?u16) bool {
     const default = port orelse COM1;
