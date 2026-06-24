@@ -3,7 +3,7 @@
 set -euo pipefail
 trap 'echo "ERROR: Build failed at line $LINENO"' ERR
 
-ARCHITECTURE=""
+ARCHITECTURE="x86_64"
 CLEAN=0
 REINSTALL=0
 SKIP_ISO=0
@@ -12,12 +12,13 @@ SKIP_DEPENDENCY_CHECK=0
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --architecture|-a)
-            if [[ -z "${2:-}" ]]; then
-                echo "Expected to get a value for $1 got nothing"
-                exit 1
-            fi
-            ARCHITECTURE="$2"
-            echo "DEBUG: Set ARCHITECTURE to $ARCHITECTURE"
+            # if [[ -z "${2:-}" ]]; then
+            #    echo "Expected to get a value for $1 got nothing"
+            #    exit 1
+            # fi
+            # ARCHITECTURE="$2"
+            # echo "DEBUG: Set ARCHITECTURE to $ARCHITECTURE"
+            # shift 2
             shift 2
             ;;
         --clean|-c)

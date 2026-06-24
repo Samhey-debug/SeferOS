@@ -2,17 +2,18 @@
 
 set -euo pipefail
 
-ARCHITECTURE=""
+ARCHITECTURE="x86_64"
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --architecture|-a)
-            if [[ -z "${2:-}" ]]; then
-                echo "Expected to get a value for $1 got nothing"
-                exit 1
-            fi
-            ARCHITECTURE="$2"
-            echo "DEBUG: Set ARCHITECTURE to $ARCHITECTURE"
+            # if [[ -z "${2:-}" ]]; then
+            #    echo "Expected to get a value for $1 got nothing"
+            #    exit 1
+            # fi
+            # ARCHITECTURE="$2"
+            # echo "DEBUG: Set ARCHITECTURE to $ARCHITECTURE"
+            # shift 2
             shift 2
             ;;
         *)
