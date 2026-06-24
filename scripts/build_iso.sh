@@ -46,5 +46,5 @@ xorriso \
     -efi-boot-part \
     --efi-boot-image \
     --protective-msdos-label iso \
-    -o octos-$ARCHITECTURE.iso
-./limine bios-install octos-$ARCHITECTURE.iso
+    -o seferos-$ARCHITECTURE.iso
+./limine bios-install seferos-$ARCHITECTURE.iso

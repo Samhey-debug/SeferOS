@@ -37,7 +37,7 @@ if [[ "$ARCHITECTURE" != "x86_64" && "$ARCHITECTURE" != "aarch64" ]]; then
 	exit 1
 fi
 
-if [[ ! -f "octos-$ARCHITECTURE.iso" ]]; then
+if [[ ! -f "seferos-$ARCHITECTURE.iso" ]]; then
     echo "ERROR: The ISO does not exist. Have you built it?"
     exit 1
 fi
@@ -47,7 +47,7 @@ if [[ "$ARCHITECTURE" == "x86_64" ]]; then
         -M q35 \
         -drive if=pflash,unit=0,format=raw,file=edk2-ovmf-bins/ovmf-code-x86_64.fd,readonly=on \
         -serial stdio \
-	    -cdrom octos-$ARCHITECTURE.iso
+	    -cdrom seferos-$ARCHITECTURE.iso
 elif [[ "$ARCHITECTURE" == "aarch64" ]]; then
     :
 fi
