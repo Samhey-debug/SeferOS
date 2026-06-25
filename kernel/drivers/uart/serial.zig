@@ -1,4 +1,6 @@
+const std = @import("std");
 const builtin = @import("builtin");
+
 const serial = switch (builtin.target.cpu.arch) {
     .x86_64 => @import("ns16550.zig"),
     else => @compileError("unsupported arch"),
@@ -20,7 +22,7 @@ pub const Serial = struct {
     }
 };
 
-pub fn getSerial(port_or_dummy: ?u16) Serial {
-    if (serial.isInitialized(port_or_dummy)) return error.SerialNotInitialized;
+pub fn getSerial(port_or_dummy: ?u16) error{SerialNotInitialized}!Serial {
+    if (!serial.isInitialized(port_or_dummy)) return error.SerialNotInitialized;
     return Serial{ .port_or_dummy = port_or_dummy, .initialized = true };
 }
